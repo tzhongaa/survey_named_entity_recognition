@@ -1,2 +1,4 @@
 git+https://github.com/aboSamoor/polyglot.git@master
 git+https://github.com/dat/pyner.git@master
+bosonnlp
+pyltp

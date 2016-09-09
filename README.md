@@ -1,10 +1,18 @@
 This is the survey of some APIs of Named Entity Recognition
 
-polyglot:(result is not good)
+polyglot: (result is not good)
 -----------
     polyglot download embeddings2.zh
     polyglot download ner2.zh
 
-Stanford Named Entity Tagger:(result is not good)
+Stanford Named Entity Tagger: (result is not good)
 -----------
     http://nlp.stanford.edu:8080/ner/process
+
+bosonnlp: (result is OK)
+-----------
+    http://bosonnlp.com/demo#overview-ner
+
+pyltp:
+-----------
+    http://pyltp.readthedocs.io/zh_CN/latest/install.html
