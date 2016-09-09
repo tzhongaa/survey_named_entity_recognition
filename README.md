@@ -18,7 +18,10 @@ pyltp(python for ltp): (result is not good as bosonnlp)
     http://pyltp.readthedocs.io/zh_CN/latest/install.html
     http://www.ltp-cloud.com/demo/
 
-nlpir: (fail to open)
+nlpir: (result is not good as bosonnlp)
 -----------
-    http://ictclas.nlpir.org/
+    http://ictclas.nlpir.org/nlpir
 
+FudanNLP: (result is not good)
+-----------
+    https://github.com/FudanNLP/fnlp/releases

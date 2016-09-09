@@ -1,0 +1,1 @@
+java -Xmx1024m -Dfile.encoding=UTF-8 -classpath "fudanNLP/fnlp-core-2.1-SNAPSHOT.jar:fudanNLP/trove4j-3.0.3.jar:fudanNLP/commons-cli-1.2.jar" org.fnlp.nlp.cn.tag.NERTagger -s fudanNLP/models/seg.m fudanNLP/models/pos.m "我想预订一杯咖啡，请把它送到腾讯大厦A栋101室。"
