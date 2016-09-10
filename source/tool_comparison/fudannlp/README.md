@@ -1,6 +1,6 @@
 test_name.sh:
 -----------------
-    bash file to execute the example
+    bash file to execute the example. Used as Named Entity Recognition.
 
 result.txt:
 -----------------
