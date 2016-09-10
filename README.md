@@ -29,3 +29,7 @@ FudanNLP(java): (result is not good)
 opennlp(java): (not support Chinese, need to train)
 ----------
     https://opennlp.apache.org/
+
+NiuParse(c++): (result is not good)
+----------
+    http://www.niuparser.com/index.html
