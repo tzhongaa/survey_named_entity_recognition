@@ -1,0 +1,5 @@
+这	r	2	SBV
+是	v	0	HED
+测试	v	4	ATT
+文本	n	2	VOB
+
