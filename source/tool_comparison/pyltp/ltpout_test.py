@@ -15,7 +15,7 @@ from pyltp import Parser
 parser = Parser() # 初始化实例
 parser.load('ltp_models/parser.model')  # 加载模型
 end = time()
-words = segmentor.segment('我家的地址是福田区老佛街108号，记住了哈！')  # 分词
+words = segmentor.segment('北京市望京soho')  # 分词
 print '\t'.join(words)
 #segmentor.release()  # 释放模型
 end1 = time()
@@ -42,7 +42,7 @@ end3 = time()
 
 # In[60]:
 
-#print [x.relation for x in arcs]
+print [x.relation for x in arcs]
 # In[63]:
 import chardet
 def word_in(word, address):

@@ -1,11 +1,13 @@
 #encoding=utf-8
 from time import time
 start = time()
-import jieba
+import jieba.posseg as pseg
 #jieba.enable_parallel()
 end = time()
-seg_list = jieba.cut("我家的地址是福田区老佛街108号，记住了哈！")
+words = pseg.cut("老街3899弄105号202室")
 end1 = time()
-print(" ".join(seg_list))
+for word, flag in words:
+    print('%s %s' % (word, flag))
+
 print(end-start)
 print(end1-end)
