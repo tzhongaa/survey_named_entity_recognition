@@ -50,9 +50,9 @@ def word_in_first(word):
 
 def address_extract(words, postags, arcs):
 
-    address = ['大厦', '大学','中学','小学', '学校', '科技园','广场', '公园', '酒店', '花园', '中心', '单元', '公司', '研究院', '公寓', '店铺', '山庄', '影城', '胡同', '大道', '学堂', '出口', '商铺', '剧场', '专柜', '门诊', '医院','房间', '总部']
-    word_address = ['省','市','县','乡','区', '镇','街','号','路', '栋','座','层','楼','室', '弄', '店', '院', '城', '园', '馆', '厅','房','站', '门','村', '幢']
-    word2_address = ['省','市','县','乡','区', '镇','街','路', '栋','座','层','楼','室', '弄', '店', '院', '城', '园', '馆', '厅','房', '站', '门','村', '幢']
+    address = ['驾校', '招待所','前台', '影棚', '商场','政府','证券','大厦', '大学','中学','小学', '学校', '科技园','广场', '公园', '酒店', '花园', '中心', '单元', '公司', '研究院', '公寓', '店铺', '山庄', '影城', '胡同', '大道', '学堂', '出口', '商铺', '剧场', '专柜', '门诊', '医院','房间', '总部', '有限公司', '分行', '银行', '支行', '俱乐部', '路口','柜台', '学院']
+    word_address = ['省','市','县','乡','区', '镇','街','号','路', '栋','座','层','楼','室', '弄', '店', '院', '城', '园', '馆', '厅','房','站', '门','村', '幢','期', '寺', '庙', '档', '铺', '部', '局']
+    word2_address = ['省','市','县','乡','区', '镇','街','路', '栋','座','层','楼','室', '店', '院', '城', '园', '馆', '厅', '村', '幢', '寺', '庙']
     word_remove = ['时']
     temp = []
     solution = []
@@ -64,7 +64,7 @@ def address_extract(words, postags, arcs):
                 del temp[len(temp)-1]
                 if len(temp) !=0 and postags[temp[0]] not in ['nz', 'n', 'ns', 'nd', 'nh', 'ni', 'nl']:
                     del temp[0] 
-            while len(temp) >=1 and not (words[temp[-1]] in address or word_in(words[temp[-1]], word_address)) and postags[temp[-1]] in ['n']:
+            while len(temp) >=1 and not (words[temp[-1]] in address or word_in(words[temp[-1]], word_address)) and postags[temp[-1]] not in ['j', 'm', 'nd', 'ni', 'nl', 'ns', 'nz', 'ws', 'i', 'q'] and not (postags[temp[-1]] in ['n'] and temp[0] >=2 and words[temp[0]-2] in ['送'] and words[temp[0]-1] in ['到', '至']) and not (postags[temp[-1]] in ['n'] and temp[0] >=2 and words[temp[0]-2] in ['地址', '住']) and not (postags[temp[-1]] in ['n'] and temp[0] >=1 and words[temp[0]-1] in ['住']):
                 temp.pop()
             if len(temp) >= 1:
                 solution.append(temp)
@@ -85,7 +85,7 @@ def address_extract(words, postags, arcs):
                 if len(temp) !=0 and postags[temp[0]] not in ['nz', 'n', 'ns', 'nd', 'nh', 'ni', 'nl']:
                     del temp[0]
             #print temp
-            while len(temp) >=1 and not (words[temp[-1]] in address or word_in(words[temp[-1]], word_address)) and postags[temp[-1]] in ['n']:
+            while len(temp) >=1 and not (words[temp[-1]] in address or word_in(words[temp[-1]], word_address)) and postags[temp[-1]] not in ['j', 'm', 'nd', 'ni', 'nl', 'ns', 'nz', 'ws', 'i', 'q'] and not (postags[temp[-1]] in ['n'] and temp[0] >=2 and words[temp[0]-2] in ['送'] and words[temp[0]-1] in ['到', '至']) and not (postags[temp[-1]] in ['n'] and temp[0] >=2 and words[temp[0]-2] in ['地址', '住']) and not (postags[temp[-1]] in ['n'] and temp[0] >=1 and words[temp[0]-1] in ['住']):
                 temp.pop()
             if len(temp) >= 1:
                 solution.append(temp)
@@ -128,7 +128,7 @@ if __name__ == '__main__':
     import chardet
     segmentor, postagger, parser = model_load()
     end = time()
-    sentence = '上海'
+    sentence = '店'
     words, postags, arcs  = parse_sentence(segmentor, postagger, parser, sentence)
     end1 = time()
     solution = address_extract(words, postags, arcs)
