@@ -127,7 +127,7 @@ def address_extract(words, postags, arcs):
 if __name__ == '__main__':
     from time import time
     start = time()
-    import chardet
+    #import chardet
     segmentor, postagger, parser = model_load()
     end = time()
     sentence = '国务院总理李克强调研上海外高桥时提出，支持上海积极探索新机制'
